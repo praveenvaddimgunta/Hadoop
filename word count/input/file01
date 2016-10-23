@@ -1,0 +1,10 @@
+Files are divided into chunks, which are typically 64 megabytes in size.
+Chunks are replicated, perhaps three times, at three different compute nodes.
+Moreover, the nodes holding copies of one chunk should be located on different
+racks, so we don’t lose all copies due to a rack failure. Normally, both the chunk
+size and the degree of replication can be decided by the user.
+To find the chunks of a file, there is another small file called the master node
+or name node for that file. The master node is itself replicated, and a directory
+for the file system as a whole knows where to find its copies. The directory itself
+can be replicated, and all participants using the DFS know where the directory
+copies are.
