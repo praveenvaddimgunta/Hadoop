@@ -83,7 +83,6 @@ public class MaxWord {
   //     context.write(key, result);
   //   }
   // }
-
    
 
   public static void main(String[] args) throws Exception {
@@ -95,10 +94,8 @@ public class MaxWord {
     job.setReducerClass(Maxofoneword.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
-
     Path input = new Path(args[0]);
-    Path output = new Path(args[1]);    
-            
+    Path output = new Path(args[1]);           
     if(!fs.exists(input)) {
       System.err.println("Input file doesn't exists");
       return;
@@ -108,12 +105,9 @@ public class MaxWord {
       System.err.println("Output file deleted");
     }
     fs.close();
-
     FileInputFormat.addInputPath(job, input);
-    FileOutputFormat.setOutputPath(job, output);
-        
-    job.waitForCompletion(true);
-        
+    FileOutputFormat.setOutputPath(job, output);        
+    job.waitForCompletion(true);        
     System.out.println("Executed Successfully!!!!");
   }
 }

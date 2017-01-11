@@ -1,0 +1,5 @@
+1	adrey	mexico	
+2	sam	texas
+3	jack	hyderabad
+4	joe	mumbai
+5	trump	london
